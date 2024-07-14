@@ -58,37 +58,32 @@ void printHeaders()
     printf("%s\n", right);
 }
 
-
-
-
-int sub_total(float price[],int item_quantity)
+float sub_total(float price[], int item_quantity)
 {
-    float subtotal=0;
-    for(int i=0;i<item_quantity;i++)
+    float subtotal = 0;
+    for(int i = 0; i < item_quantity; i++)
     {
-        subtotal+=price[i]; 
+        subtotal += price[i]; 
     }
     return subtotal;
 }
 
-float total_bill= sub_total(price[],item_quantity);
-
-void printSubtotal()
-{
+void printSubtotal(float price[], int item_quantity)
+{ 
+    float total_bill = sub_total(price, item_quantity);
     printf("Subtotal");
-        int lenLeft = strlen("Subtotal");
-        int paddingCenter = (CONSOLE_WIDTH - lenLeft) / 2;
-        for (int j = lenLeft; j < paddingCenter; j++) {
-            putchar(' ');
-        }
-        int lenCenter = 0;
-        int paddingRight = CONSOLE_WIDTH - lenCenter - 7;
-        for (int k = lenCenter + 1; k < paddingRight; k++) {
-            putchar(' ');
-        }
-        printf("%.2f\n",sub_total(price[],item_quantity));  
+    int lenLeft = strlen("Subtotal");
+    int paddingCenter = (CONSOLE_WIDTH - lenLeft) / 2;
+    for (int j = lenLeft; j < paddingCenter; j++) {
+        putchar(' ');
+    }
+    int lenCenter = 0;
+    int paddingRight = CONSOLE_WIDTH - lenCenter - 15;
+    for (int k = lenCenter + 1; k < paddingRight; k++) {
+        putchar(' ');
+    }
+    printf("%.2f\n", total_bill);  
 }
-
 
 int main() 
 {
@@ -126,8 +121,6 @@ int main()
     printLines();
     printf("\n");
 
-
-
     for (int i = 0; i < item_quantity; i++) {
         printf("%s", item_name[i]);
         int lenLeft = strlen(item_name[i]);
@@ -137,7 +130,7 @@ int main()
         }
         printf("%.2f", unit_quantity[i]);
         int lenCenter = snprintf(NULL, 0, "%.2f", unit_quantity[i]);
-        int paddingRight = CONSOLE_WIDTH - lenCenter - 7;
+        int paddingRight = CONSOLE_WIDTH - lenCenter - 15;
         for (int k = lenCenter + 1; k < paddingRight; k++) {
             putchar(' ');
         }
@@ -145,12 +138,7 @@ int main()
     }
     printf("\n");
     printLines();
-    printSubtotal()
-
-
-
-
-
+    printSubtotal(price, item_quantity);
 
     return 0;
 }
