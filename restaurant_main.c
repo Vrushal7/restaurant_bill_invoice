@@ -58,6 +58,38 @@ void printHeaders()
     printf("%s\n", right);
 }
 
+
+
+
+int sub_total(float price[],int item_quantity)
+{
+    float subtotal=0;
+    for(int i=0;i<item_quantity;i++)
+    {
+        subtotal+=price[i]; 
+    }
+    return subtotal;
+}
+
+float total_bill= sub_total(price[],item_quantity);
+
+void printSubtotal()
+{
+    printf("Subtotal");
+        int lenLeft = strlen("Subtotal");
+        int paddingCenter = (CONSOLE_WIDTH - lenLeft) / 2;
+        for (int j = lenLeft; j < paddingCenter; j++) {
+            putchar(' ');
+        }
+        int lenCenter = 0;
+        int paddingRight = CONSOLE_WIDTH - lenCenter - 7;
+        for (int k = lenCenter + 1; k < paddingRight; k++) {
+            putchar(' ');
+        }
+        printf("%.2f\n",sub_total(price[],item_quantity));  
+}
+
+
 int main() 
 {
     char customer_name[100];
@@ -92,6 +124,8 @@ int main()
     printLines();
     printHeaders();
     printLines();
+    printf("\n");
+
 
 
     for (int i = 0; i < item_quantity; i++) {
@@ -109,6 +143,14 @@ int main()
         }
         printf("%.2f\n", price[i]);
     }
+    printf("\n");
+    printLines();
+    printSubtotal()
+
+
+
+
+
 
     return 0;
 }
