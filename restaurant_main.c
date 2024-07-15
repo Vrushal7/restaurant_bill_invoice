@@ -126,6 +126,24 @@ void printSgst(float price[], int item_quantity,float total_bill)
 }
 
 
+void printNettotal(float sgst,float cgst,float total_bill)
+{ 
+    float net_bill = total_bill+sgst+cgst;
+    printf("Nettotal");
+    int lenLeft = strlen("Nettotal");
+    int paddingCenter = (CONSOLE_WIDTH - lenLeft) / 2;
+    for (int j = lenLeft; j < paddingCenter; j++) {
+        putchar(' ');
+    }
+    int lenCenter = 0;
+    int paddingRight = CONSOLE_WIDTH - lenCenter - 15;
+    for (int k = lenCenter + 1; k < paddingRight; k++) {
+        putchar(' ');
+    }
+    printf("%.2f\n", net_bill);  
+}
+
+
 int main() 
 {
     char customer_name[100];
