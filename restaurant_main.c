@@ -85,6 +85,47 @@ void printSubtotal(float price[], int item_quantity)
     printf("%.2f\n", total_bill);  
 }
 
+
+
+
+void printCgst(float price[], int item_quantity,float total_bill)
+{ 
+    float cgst=0.09*total_bill;
+    float total_bill = sub_total(price, item_quantity);
+    printf("CGST@9");
+    int lenLeft = strlen("CGST@9");
+    int paddingCenter = (CONSOLE_WIDTH - lenLeft) / 2;
+    for (int j = lenLeft; j < paddingCenter; j++) {
+        putchar(' ');
+    }
+    int lenCenter = 0;
+    int paddingRight = CONSOLE_WIDTH - lenCenter - 15;
+    for (int k = lenCenter + 1; k < paddingRight; k++) {
+        putchar(' ');
+    }
+    printf("%.2f\n", cgst);  
+}
+
+
+void printSgst(float price[], int item_quantity,float total_bill)
+{ 
+    float sgst=0.09*total_bill;
+    float total_bill = sub_total(price, item_quantity);
+    printf("SGST@9");
+    int lenLeft = strlen("SGST@9");
+    int paddingCenter = (CONSOLE_WIDTH - lenLeft) / 2;
+    for (int j = lenLeft; j < paddingCenter; j++) {
+        putchar(' ');
+    }
+    int lenCenter = 0;
+    int paddingRight = CONSOLE_WIDTH - lenCenter - 15;
+    for (int k = lenCenter + 1; k < paddingRight; k++) {
+        putchar(' ');
+    }
+    printf("%.2f\n", sgst);  
+}
+
+
 int main() 
 {
     char customer_name[100];
