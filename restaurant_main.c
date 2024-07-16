@@ -167,6 +167,7 @@ int main()
     printf("\nDate: %02d-%02d-%04d\n", local->tm_mday, local->tm_mon + 1, local->tm_year + 1900);
     printf("Time: %02d:%02d:%02d\n", local->tm_hour, local->tm_min, local->tm_sec);
     printf("Invoice to: %s\n", customer_name);
+    
     printLines();
     printHeaders();
     printLines();
@@ -197,7 +198,7 @@ int main()
     printSgst(price, item_quantity, total_bill);
 
     printLines(); 
-    
+
     float cgst = 0.09 * total_bill;
     float sgst = 0.09 * total_bill;
     printNettotal(sgst, cgst, total_bill);
