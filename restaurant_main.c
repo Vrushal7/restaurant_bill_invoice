@@ -85,13 +85,9 @@ void printSubtotal(float price[], int item_quantity)
     printf("%.2f\n", total_bill);  
 }
 
-
-
-
-void printCgst(float price[], int item_quantity,float total_bill)
+void printCgst(float price[], int item_quantity, float total_bill)
 { 
-    float cgst=0.09*total_bill;
-    float total_bill = sub_total(price, item_quantity);
+    float cgst = 0.09 * total_bill;
     printf("CGST@9");
     int lenLeft = strlen("CGST@9");
     int paddingCenter = (CONSOLE_WIDTH - lenLeft) / 2;
@@ -106,11 +102,9 @@ void printCgst(float price[], int item_quantity,float total_bill)
     printf("%.2f\n", cgst);  
 }
 
-
-void printSgst(float price[], int item_quantity,float total_bill)
+void printSgst(float price[], int item_quantity, float total_bill)
 { 
-    float sgst=0.09*total_bill;
-    float total_bill = sub_total(price, item_quantity);
+    float sgst = 0.09 * total_bill;
     printf("SGST@9");
     int lenLeft = strlen("SGST@9");
     int paddingCenter = (CONSOLE_WIDTH - lenLeft) / 2;
@@ -125,10 +119,9 @@ void printSgst(float price[], int item_quantity,float total_bill)
     printf("%.2f\n", sgst);  
 }
 
-
-void printNettotal(float sgst,float cgst,float total_bill)
+void printNettotal(float sgst, float cgst, float total_bill)
 { 
-    float net_bill = total_bill+sgst+cgst;
+    float net_bill = total_bill + sgst + cgst;
     printf("Nettotal");
     int lenLeft = strlen("Nettotal");
     int paddingCenter = (CONSOLE_WIDTH - lenLeft) / 2;
@@ -142,7 +135,6 @@ void printNettotal(float sgst,float cgst,float total_bill)
     }
     printf("%.2f\n", net_bill);  
 }
-
 
 int main() 
 {
@@ -198,6 +190,17 @@ int main()
     printf("\n");
     printLines();
     printSubtotal(price, item_quantity);
+    printLines();
+
+    float total_bill = sub_total(price, item_quantity);
+    printCgst(price, item_quantity, total_bill);
+    printSgst(price, item_quantity, total_bill);
+
+    printLines(); 
+    
+    float cgst = 0.09 * total_bill;
+    float sgst = 0.09 * total_bill;
+    printNettotal(sgst, cgst, total_bill);
 
     return 0;
 }
