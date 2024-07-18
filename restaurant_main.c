@@ -155,7 +155,7 @@ int main()
         scanf("%f", &unit_price[i]);
         printf("Enter the unit quantity: ");
         scanf("%f", &unit_quantity[i]);
-        price[i] = unit_price[i] * unit_quantity[i]; // Calculate price for each item
+        price[i] = unit_price[i] * unit_quantity[i]; 
     }
 
     time_t now;
